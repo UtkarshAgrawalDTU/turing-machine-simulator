@@ -47,7 +47,7 @@ class Tape extends Component
 
       const rectObj = rect.map(item => <g class="tape-cell" transform= {item.translate}>
                                     <rect className = "boxStyle" width="50" height="50"></rect>
-                                    <text x="25" y="33">{item.text}</text>
+                                    <text x="20" y="30">{item.text}</text>
                                 </g>);
 
 
