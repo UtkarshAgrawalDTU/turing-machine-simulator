@@ -22,16 +22,27 @@ class App extends Component
     })
   }
 
-  trigger()
+  start()
   {
+    this.setState(prevState => ({
+      input : prevState.input + " ",
+    }))
+    console.log(this.state)
+    this.trigger();
+  }
+
+  trigger()
+  {   
+
     if(this.state.currentState !== 'accept' && this.state.currentState !== 'reject')
     {
-      this.simulate();
+      if(this.state.simulator === "Palindrome")
+        	this.simulatePalindrome();
     }
       
   }
 
-  simulate()
+  simulatePalindrome()
   {
     const stateList = {
       start : {
@@ -165,8 +176,7 @@ class App extends Component
 
       var currState = this.state.currentState;
       var pointer = this.state.pointer;
-      var input = this.state.input + " ";
-
+      var input = this.state.input;
 
       var newinput = input;
       var newpointer = pointer;
@@ -176,7 +186,7 @@ class App extends Component
       if(input[pointer] === 'a')
       {
         newState = conditions['a'].newState;
-        newinput = input.substring(0, pointer) + conditions['a'].write + input.substring(pointer + 1);
+        newinput = input.substring(0, pointer) + conditions['a'].write + input.substring(pointer + 1) + " ";
         if(conditions['a'].move === 'L')
           newpointer -=1;
         else
@@ -186,7 +196,7 @@ class App extends Component
       else if(input[pointer] === 'b')
       {
         newState = conditions['b'].newState;
-        newinput = input.substring(0, pointer) + conditions['b'].write + input.substring(pointer + 1);
+        newinput = input.substring(0, pointer) + conditions['b'].write + input.substring(pointer + 1) + " ";
         if(conditions['b'].move === 'L')
           newpointer -=1;
         else
@@ -196,7 +206,7 @@ class App extends Component
       else if(input[pointer] === ' ')
       {
         newState = conditions['blank'].newState;
-        newinput = input.substring(0, pointer) + conditions['blank'].write + input.substring(pointer + 1);
+        newinput = input.substring(0, pointer) + conditions['blank'].write + input.substring(pointer + 1) + " ";
         if(conditions['blank'].move === 'L')
           newpointer -=1;
         else
@@ -212,8 +222,22 @@ class App extends Component
           currentState : newState,
         })
         this.trigger();
-      }, 750);
+      },  1000);
       
+  }
+
+  selectPalindrome()
+  {
+    this.setState({
+      simulator : "Palindrome"
+    })
+  }
+
+  selectDiv3()
+  {
+    this.setState({
+      simulator : "Divisible by 3"
+    })
   }
 
 
@@ -226,18 +250,22 @@ class App extends Component
       input : "",
       pointer : 0,      
       currentState : "start",
+      simulator : "",
     }
 
     this.handleChange = this.handleChange.bind(this)
-    this.simulate = this.simulate.bind(this)
+    this.simulatePalindrome = this.simulatePalindrome.bind(this)
     this.trigger = this.trigger.bind(this)
+    this.selectPalindrome = this.selectPalindrome.bind(this)
+    this.selectDiv3 = this.selectDiv3.bind(this)
+    this.start = this.start.bind(this)
   }
 
   render(){
     console.log(this.state)
     const accept = this.state.currentState === 'accept';
     const reject = this.state.currentState === 'reject'; 
-
+    const simulator = this.state.simulator === "" ? "Select Problem" : this.state.simulator;
     return (
       <div className="App">
         <div className = "container">
@@ -245,15 +273,13 @@ class App extends Component
           <br />
 
 
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-                <div role="separator" class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Separated link</a>
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+    <button className="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{simulator}</button>
+              <div className="dropdown-menu">
+                <a className="dropdown-item" onClick = {this.selectPalindrome}>Palindrome</a>
+                <a className="dropdown-item" onClick = {this.selectDiv3} >Divisible by 3</a>
+                <a className="dropdown-item">Other</a>
               </div>
             </div>
             <input id = "input" value = {this.state.input} onChange = {this.handleChange} className="form-control form-control-lg" type="text" placeholder="Enter string of a and b here" />
@@ -268,7 +294,7 @@ class App extends Component
           <br />
           <br />
           <br />
-          <button type="button" class="btn btn-primary" onClick = {this.trigger}>Simulate</button>
+          <button type="button" class="btn btn-primary" onClick = {this.start}>Simulate</button>
 
           {accept ? 
           <div className="alert alert-success my-3" role="alert">
