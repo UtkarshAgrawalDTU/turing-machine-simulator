@@ -241,11 +241,24 @@ class App extends Component
     return (
       <div className="App">
         <div className = "container">
-          <h1 className = "my-4">Palindrome Simulator using Turing Machine</h1>
+          <h1 className = "my-4">Turing Machine Simulator</h1>
           <br />
-          <br />
-          <br />
-          <input id = "input" value = {this.state.input} onChange = {this.handleChange} className="form-control form-control-sm" type="text" placeholder="Enter string of a and b here" />
+
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                <div role="separator" class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Separated link</a>
+              </div>
+            </div>
+            <input id = "input" value = {this.state.input} onChange = {this.handleChange} className="form-control form-control-lg" type="text" placeholder="Enter string of a and b here" />
+          </div>
+          
           
           <br />
           <br />
