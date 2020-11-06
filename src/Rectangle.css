@@ -1,0 +1,12 @@
+.boxStyle{
+    fill: rgb(255,255,255); 
+    stroke-width: 2;
+    stroke: rgb(0,0,0);
+}
+
+
+#tape-head{
+    fill: none;
+    stroke-width: 2;
+    stroke: rgb(238, 223, 113);
+}

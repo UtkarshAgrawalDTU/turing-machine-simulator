@@ -1,25 +1,48 @@
-import logo from './logo.svg';
 import './App.css';
+import {React, Component} from "react"
+import Tape from "./Tape"
+class App extends Component
+{
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  componentDidMount()
+  {
+    this.setState({
+      loading : false,
+    });
+  }
+
+  handleChange(event)
+  {
+    this.setState({
+      [event.target.id] : event.target.value
+    })
+  }
+
+  constructor()
+  {
+    super();
+    this.state = {
+      loading : true,
+      input : "",
+      pointer : 0
+    }
+
+    this.handleChange = this.handleChange.bind(this)
+  }
+
+  render(){
+    console.log(this.state)
+    return (
+      <div className="App">
+        <div className = "container">
+          <h1 className = "my-4">Palindrome Simulator using Turing Machine</h1>
+          <input id = "input" value = {this.state.input} onChange = {this.handleChange} className="form-control form-control-sm" type="text" placeholder="Enter string of a and b here" />
+          <Tape input = {this.state.input} pointer = {this.state.pointer}/>
+        </div>
+      </div>
+    );
+  }
+  
 }
 
 export default App;
