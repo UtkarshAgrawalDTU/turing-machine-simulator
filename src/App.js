@@ -689,6 +689,16 @@ class App extends Component
                 Reset
               </button>
             </div>
+
+            <div class="col-xs-1 mx-1">
+              <button type="button" onClick = {this.trigger} class="btn btn-light text-center tm-btn-diagram tm-run">
+              <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-play" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M10.804 8L5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z"/>
+              </svg>
+              <br />Run</button>
+            </div>
+
+
             <div class="col-xs-2 col-xs-offset-4 text-center mx-1">
               <button type="button" onClick = {this.step} class="btn btn-primary text-center">
               <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-skip-end-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -699,13 +709,7 @@ class App extends Component
                 Step
               </button>
             </div>
-            <div class="col-xs-1 mx-1">
-              <button type="button" onClick = {this.trigger} class="btn btn-light text-center tm-btn-diagram tm-run">
-              <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-play" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M10.804 8L5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z"/>
-              </svg>
-              <br />Run</button>
-            </div>
+            
         </div>
 
 
@@ -719,7 +723,54 @@ class App extends Component
           <div className="alert alert-danger my-5" role="alert">
             Failure!
           </div> : <div /> 
-          }          
+          }
+
+
+          <div className="accordion my-5" id="accordionExample">
+            <div className="card">
+              <div className="card-header" id="headingOne">
+                <h2 className="mb-0">
+                  <button className="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Check for Palindrome 
+                  </button>
+                </h2>
+              </div>
+
+              <div id="collapseOne" className="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div className="card-body">
+                Checks whether the input string is a palindrome or not. Checks for both even and odd length palindromes. Strings containing only characters a and b are accepted. 
+                </div>
+              </div>
+            </div>
+            <div className="card">
+              <div className="card-header" id="headingTwo">
+                <h2 className="mb-0">
+                  <button className="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Check divisibility by 3
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div className="card-body">
+                  Checks whether the input number is divisible by 3. Accepts a non-negative integer. No need to input +/- sign. 
+                </div>
+              </div>
+            </div>
+            <div className="card">
+              <div className="card-header" id="headingThree">
+                <h2 className="mb-0">
+                  <button className="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Check 3 equal length strings
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseThree" className="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div className="card-body">
+                  Checks for the language a^n*b^n*c^n, where n{'>'}=1. Accepts only a, b and c as input charachters. Accepts only a's followed by b's followed by c's of the same length.
+                </div>
+              </div>
+            </div>
+          </div>
           
         </div>
           <br />
