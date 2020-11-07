@@ -1,0 +1,25 @@
+#Footer{
+    background-color: rgb(251, 243, 243);
+}
+  
+a{
+    color: rgba(10, 10, 10, 0.705);
+}
+  
+.icon :hover{
+    color: rgba(32, 32, 32, 0.856);
+    transition: 0.5s;
+}
+  
+.icon-background{
+    color:rgb(39, 37, 37);
+}
+  
+p.copyright-text{
+    font-size: 15px;
+    color: rgba(32, 32, 32, 0.856);
+}
+
+.fa-stack{
+    color: black;
+}

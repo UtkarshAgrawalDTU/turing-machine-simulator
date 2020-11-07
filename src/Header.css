@@ -1,0 +1,10 @@
+.logo{
+    font-family: 'Grenze Gotisch', cursive;
+    text-align: center;
+    font-size: 55px;
+}
+
+.link:hover
+{
+    text-decoration: none;
+}
