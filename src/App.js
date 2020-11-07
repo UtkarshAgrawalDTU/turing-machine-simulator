@@ -664,9 +664,9 @@ class App extends Component
             <div className="input-group-prepend">
               <button className="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{simulator}</button>
               <div className="dropdown-menu">
-                <a className="dropdown-item" onClick = {this.selectPalindrome}>Palindrome</a>
-                <a className="dropdown-item" onClick = {this.selectDiv3} >Divisible by 3</a>
-                <a className="dropdown-item" onClick = {this.select3Equal}>Three Equal Lengths</a>
+                <button className="dropdown-item" onClick = {this.selectPalindrome}>Palindrome</button>
+                <button className="dropdown-item" onClick = {this.selectDiv3} >Divisible by 3</button>
+                <button className="dropdown-item" onClick = {this.select3Equal}>Three Equal Lengths</button>
               </div>
             </div>
             <input id = "input_user" value = {this.state.input_user} onChange = {this.handleChange} className="form-control form-control-lg" type="text" placeholder="Enter string of a and b here" />
@@ -678,11 +678,11 @@ class App extends Component
         </div>
           
 
-        <div id="controls-container" class="row text-center btn-group">
-            <div class="col-xs-1 mx-1">
-              <button type="button" onClick = {this.reset} class="btn btn-warning btn-xs text-center">
-              <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-arrow-counterclockwise" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
+        <div id="controls-container" className="row text-center btn-group">
+            <div className="col-xs-1 mx-1">
+              <button type="button" onClick = {this.reset} className="btn btn-warning btn-xs text-center">
+              <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" className="bi bi-arrow-counterclockwise" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fillRule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
                 <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
               </svg>
               <br />
@@ -690,19 +690,19 @@ class App extends Component
               </button>
             </div>
 
-            <div class="col-xs-1 mx-1">
-              <button type="button" onClick = {this.trigger} class="btn btn-light text-center tm-btn-diagram tm-run">
-              <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-play" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M10.804 8L5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z"/>
+            <div className="col-xs-1 mx-1">
+              <button type="button" onClick = {this.trigger} className="btn btn-light text-center tm-btn-diagram tm-run">
+              <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" className="bi bi-play" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fillRule="evenodd" d="M10.804 8L5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z"/>
               </svg>
               <br />Run</button>
             </div>
 
 
-            <div class="col-xs-2 col-xs-offset-4 text-center mx-1">
-              <button type="button" onClick = {this.step} class="btn btn-primary text-center">
-              <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-skip-end-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M12 3.5a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z"/>
+            <div className="col-xs-2 col-xs-offset-4 text-center mx-1">
+              <button type="button" onClick = {this.step} className="btn btn-primary text-center">
+              <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" className="bi bi-skip-end-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fillRule="evenodd" d="M12 3.5a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z"/>
                 <path d="M11.596 8.697l-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
               </svg>
               <br />
